@@ -3,7 +3,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:zomato_clone/common/constants/colors.dart';
 import 'package:zomato_clone/common/utils/utils.dart';
 import 'package:zomato_clone/common/widgets/custom_button.dart';
-import 'package:zomato_clone/features/loginandsignup/controller/login_signup_controller.dart';
 import 'package:zomato_clone/features/loginandsignup/screens/verify_otp_screen.dart';
 import 'package:zomato_clone/features/home/main_home/screens/main_home_screen.dart';
 
@@ -18,80 +17,40 @@ class LoginScreen extends ConsumerStatefulWidget {
 
 class _LoginScreenState extends ConsumerState<LoginScreen> {
   final phoneEditingController = TextEditingController();
-  var isSigning = false;
 
   void googleSignInOrSignUp() {
-    showLoaderDialog(context);
-    ref.read(loginSignUpControllerProvider).signInOrSignUpWithGoogle().then(
-      (value) {
-        Navigator.pop(context);
-        if (value.first == null) {
-          showSnackBar(context, value.second ?? "Some Error Occurred");
-        } else {
-          if (value.first?.second == true) {
-            showSnackBar(context, "New User to be created");
-          } else {
-            Navigator.pushNamedAndRemoveUntil(
-                context, MainHomeScreen.routeName, (route) => false);
-          }
-        }
-        setState(() {
-          isSigning = false;
-        });
-      },
-    );
+    continueAsDemo();
   }
 
   void emailSignInOrSignUp() {}
 
   void facebookSignInOrSignUp(BuildContext context) {
-    showLoaderDialog(context);
-    ref.read(loginSignUpControllerProvider).signInOrSignUpWithFacebook().then(
-      (value) {
-        Navigator.pop(context);
-        if (value.first == null) {
-          showSnackBar(context, value.second ?? "Some Error Occurred");
-        } else {
-          if (value.first?.second == true) {
-            showSnackBar(context, "New User to be created");
-          } else {
-            Navigator.pushNamedAndRemoveUntil(
-                context, MainHomeScreen.routeName, (route) => false);
-          }
-        }
-      },
+    continueAsDemo();
+  }
+
+  void continueAsDemo() {
+    Navigator.pushNamedAndRemoveUntil(
+      context,
+      MainHomeScreen.routeName,
+      (route) => false,
     );
   }
 
   void phoneSignInOrSignUp() {
-    //just to test
     showLoaderDialog(context);
     Future.delayed(const Duration(seconds: 2), () {
       Navigator.pop(context);
       final args = <String, dynamic>{
-        "verificationId": "verificationId",
-        "resendToken": 5,
         "phoneNumber": phoneEditingController.text
       };
-      Navigator.pushNamed(context, VerifyOTPScreen.routeName,
-          arguments: args);}
-    );
+      Navigator.pushNamed(context, VerifyOTPScreen.routeName, arguments: args);
+    });
+  }
 
-
-    // if (phoneEditingController.text.isNotEmpty) {
-    //   showLoaderDialog(context);
-    //   ref.read(loginSignUpControllerProvider).signInOrSignUpWithPhone(
-    //       "+91${phoneEditingController.text}", (verificationId, resendToken) {
-    //     Navigator.pop(context);
-    //     final args = <String, dynamic>{
-    //       "verificationId": verificationId,
-    //       "resendToken": resendToken,
-    //       "phoneNumber": phoneEditingController.text
-    //     };
-    //     Navigator.pushNamed(context, VerifyOTPScreen.routeName,
-    //         arguments: args);
-    //   });
-    // }
+  @override
+  void dispose() {
+    phoneEditingController.dispose();
+    super.dispose();
   }
 
   @override
@@ -356,7 +315,8 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                                           ),
                                           Text(
                                             "Continue with Facebook",
-                                            style: textTheme.bodyLarge?.copyWith(
+                                            style:
+                                                textTheme.bodyLarge?.copyWith(
                                               color: grey,
                                               fontSize: 16,
                                             ),
@@ -386,7 +346,8 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                                           ),
                                           Text(
                                             "Continue with Email",
-                                            style: textTheme.bodyLarge?.copyWith(
+                                            style:
+                                                textTheme.bodyLarge?.copyWith(
                                               color: grey,
                                               fontSize: 16,
                                             ),
@@ -427,7 +388,8 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
             padding: const EdgeInsets.all(20.0),
             child: Text(
               "By continuing, you agree to our\nTerms of Service, Privacy Policy, and Content Policy",
-              style: textTheme.bodyLarge?.copyWith(color: darkGrey, fontSize: 12),
+              style:
+                  textTheme.bodyLarge?.copyWith(color: darkGrey, fontSize: 12),
               textAlign: TextAlign.center,
             ),
           ),

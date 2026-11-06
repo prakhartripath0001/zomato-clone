@@ -1,4 +1,3 @@
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -6,19 +5,11 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:zomato_clone/features/splash/splash_screen.dart';
 import 'package:zomato_clone/routes/main_router.dart';
 import 'package:zomato_clone/common/constants/colors.dart';
-import 'package:zomato_clone/firebase_options.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-void main() async {
+void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
-  runApp(
-    const ProviderScope(
-      child: MyApp(),
-    ),
-  );
+  runApp(const ProviderScope(child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -72,12 +63,8 @@ class MyApp extends StatelessWidget {
         // ),
         textTheme: TextTheme(
           displayLarge: displayTextStyle,
-          displayMedium: displayTextStyle.copyWith(
-            fontSize: 20,
-          ),
-          displaySmall: displayTextStyle.copyWith(
-            fontSize: 18,
-          ),
+          displayMedium: displayTextStyle.copyWith(fontSize: 20),
+          displaySmall: displayTextStyle.copyWith(fontSize: 18),
           titleLarge: titleTextStyle,
           titleMedium: titleTextStyle.copyWith(
             fontWeight: FontWeight.w700,
@@ -118,12 +105,10 @@ class MyApp extends StatelessWidget {
           color: white,
           surfaceTintColor: white,
         ),
-        cardTheme: const CardTheme(
-          color: white,
-          surfaceTintColor: white,
+        cardTheme: const CardTheme(color: white, surfaceTintColor: white),
+        progressIndicatorTheme: const ProgressIndicatorThemeData(
+          color: primaryColor,
         ),
-        progressIndicatorTheme:
-            const ProgressIndicatorThemeData(color: primaryColor),
       ),
       home: const SplashScreen(),
       onGenerateRoute: generateRoute,

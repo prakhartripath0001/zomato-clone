@@ -35,10 +35,8 @@ Route<dynamic> generateRoute(RouteSettings routeSettings) {
       break;
     case VerifyOTPScreen.routeName:
       final arguments = routeSettings.arguments as Map<String, dynamic>;
-      final verificationId = arguments["verificationId"] as String;
-      final resendToken = arguments["resendToken"] as int?;
       final phoneNumber = arguments["phoneNumber"] as String;
-      page = VerifyOTPScreen(verificationId, resendToken, phoneNumber);
+      page = VerifyOTPScreen(phoneNumber);
       break;
     case ChooseDeliveryLocationScreen.routeName:
       page = const ChooseDeliveryLocationScreen();
@@ -46,10 +44,7 @@ Route<dynamic> generateRoute(RouteSettings routeSettings) {
     default:
       page = const Scaffold(
         body: Center(
-          child: Text(
-            "Page Doesn't Exists",
-            style: TextStyle(fontSize: 26),
-          ),
+          child: Text("Page Doesn't Exists", style: TextStyle(fontSize: 26)),
         ),
       );
   }

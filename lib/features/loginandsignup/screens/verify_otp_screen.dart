@@ -8,13 +8,9 @@ import 'package:zomato_clone/features/loginandsignup/controller/login_signup_con
 
 class VerifyOTPScreen extends ConsumerStatefulWidget {
   static const routeName = "/verify-otp-screen";
-  final String verificationId;
-  final int? resendToken;
   final String phoneNumber;
 
-  const VerifyOTPScreen(this.verificationId, this.resendToken, this.phoneNumber,
-      {Key? key})
-      : super(key: key);
+  const VerifyOTPScreen(this.phoneNumber, {Key? key}) : super(key: key);
 
   @override
   ConsumerState<VerifyOTPScreen> createState() => _VerifyOTPScreenState();
@@ -48,10 +44,7 @@ class _VerifyOTPScreenState extends ConsumerState<VerifyOTPScreen> {
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: const Icon(
-            Icons.arrow_back_sharp,
-            color: black,
-          ),
+          icon: const Icon(Icons.arrow_back_sharp, color: black),
         ),
         backgroundColor: white,
         elevation: 0,
@@ -61,23 +54,19 @@ class _VerifyOTPScreenState extends ConsumerState<VerifyOTPScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const SizedBox(
-              height: 20,
-            ),
+            const SizedBox(height: 20),
             Text(
-              "We have sent a verification code to",
+              "Enter any 6-digit code to continue in this UI demo.",
               style: textTheme.bodyLarge?.copyWith(fontSize: 16),
             ),
-            const SizedBox(
-              height: 8,
-            ),
+            const SizedBox(height: 8),
+            Text(widget.phoneNumber, style: textTheme.titleSmall),
+            const SizedBox(height: 8),
             Text(
-              widget.phoneNumber,
-              style: textTheme.titleSmall,
+              "No SMS is sent.",
+              style: textTheme.bodySmall?.copyWith(color: midGrey),
             ),
-            const SizedBox(
-              height: 30,
-            ),
+            const SizedBox(height: 30),
             Padding(
               padding: const EdgeInsets.all(15.0),
               child: Pinput(
@@ -89,9 +78,7 @@ class _VerifyOTPScreenState extends ConsumerState<VerifyOTPScreen> {
                 onCompleted: verifyPin,
               ),
             ),
-            const SizedBox(
-              height: 30,
-            ),
+            const SizedBox(height: 30),
             StreamBuilder(
               stream: ref.read(loginSignUpControllerProvider).getResendTime(),
               builder: (context, snapshot) {
@@ -100,9 +87,10 @@ class _VerifyOTPScreenState extends ConsumerState<VerifyOTPScreen> {
                     : "Resend SMS in ${snapshot.data}";
                 return OutlinedButton(
                   onPressed: () {
-                    setState(() {
-                      showLoaderDialog(context);
-                    });
+                    showSnackBar(
+                      context,
+                      "SMS verification is not enabled in this UI demo.",
+                    );
                   },
                   style: OutlinedButton.styleFrom(
                     padding: const EdgeInsets.all(15),
@@ -116,15 +104,14 @@ class _VerifyOTPScreenState extends ConsumerState<VerifyOTPScreen> {
                   child: Text(
                     btnText,
                     style: textTheme.labelSmall?.copyWith(
-                        color: snapshot.data == 0 ? primaryColor : midGrey,
-                        fontSize: 16),
+                      color: snapshot.data == 0 ? primaryColor : midGrey,
+                      fontSize: 16,
+                    ),
                   ),
                 );
               },
             ),
-            const SizedBox(
-              height: 30,
-            ),
+            const SizedBox(height: 30),
             Text(
               "Try other login methods",
               style: textTheme.labelSmall?.copyWith(color: primaryColor),
@@ -137,24 +124,10 @@ class _VerifyOTPScreenState extends ConsumerState<VerifyOTPScreen> {
 
   void verifyPin(String pin) {
     showLoaderDialog(context);
-    Future.delayed(
-      const Duration(seconds: 3),
-      () {
-        Navigator.pop(context);
-        showSnackBar(context, "Success");
-        Navigator.pushNamed(context, MainHomeScreen.routeName);
-      },
-    );
-    // ref
-    //     .read(loginSignUpControllerProvider)
-    //     .verifyOTP(widget.verificationId, pin)
-    //     .then((value) {
-    //   if (value) {
-    //     showSnackBar(context, "Success");
-    //   } else {
-    //     showSnackBar(context, "Verification Failed Wrong OTP");
-    //   }
-    //   Navigator.pop(context);
-    // });
+    Future.delayed(const Duration(seconds: 3), () {
+      Navigator.pop(context);
+      showSnackBar(context, "Success");
+      Navigator.pushNamed(context, MainHomeScreen.routeName);
+    });
   }
 }
