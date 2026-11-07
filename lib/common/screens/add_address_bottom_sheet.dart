@@ -8,7 +8,8 @@ import 'package:zomato_clone/common/widgets/custom_button.dart';
 import 'package:zomato_clone/common/widgets/name_and_phone_number_widget.dart';
 
 class AddAddressBottomSheet extends StatefulWidget {
-  const AddAddressBottomSheet({Key? key}) : super(key: key);
+  final Function(String address)? onAddressSaved;
+  const AddAddressBottomSheet({Key? key, this.onAddressSaved}) : super(key: key);
 
   @override
   State<AddAddressBottomSheet> createState() => _AddAddressBottomSheetState();
@@ -22,6 +23,16 @@ class _AddAddressBottomSheetState extends State<AddAddressBottomSheet> {
   final flatHouseFloorBuildingController = TextEditingController();
   final areaSectorLocalityController = TextEditingController();
   final nearbyLandmarkController = TextEditingController();
+
+  @override
+  void dispose() {
+    nameController.dispose();
+    phoneController.dispose();
+    flatHouseFloorBuildingController.dispose();
+    areaSectorLocalityController.dispose();
+    nearbyLandmarkController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -52,23 +63,21 @@ class _AddAddressBottomSheetState extends State<AddAddressBottomSheet> {
                 ),
                 const Divider(
                   height: 1,
-                  color: grey,
+                  color: lightGrey,
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 14)
-                      .copyWith(top: 30),
+                      .copyWith(top: 20),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
                         "Who are you ordering for?",
                         style: textTheme?.labelSmall?.copyWith(
-                          color: grey.withOpacity(0.7),
+                          color: grey,
                         ),
                       ),
-                      const SizedBox(
-                        height: 10,
-                      ),
+                      const SizedBox(height: 10),
                       Row(
                         mainAxisSize: MainAxisSize.min,
                         children: [
@@ -83,9 +92,7 @@ class _AddAddressBottomSheetState extends State<AddAddressBottomSheet> {
                               }
                             },
                           ),
-                          const SizedBox(
-                            width: 25,
-                          ),
+                          const SizedBox(width: 25),
                           orderForButtonWidget(
                             label: "Someone else",
                             isSelected: orderFor == OrderFor.someoneElse,
@@ -105,11 +112,11 @@ class _AddAddressBottomSheetState extends State<AddAddressBottomSheet> {
                           phoneController: phoneController,
                         ),
                       Padding(
-                        padding: const EdgeInsets.only(top: 30, bottom: 10),
+                        padding: const EdgeInsets.only(top: 24, bottom: 10),
                         child: Text(
                           "Save address as *",
                           style: textTheme?.labelSmall?.copyWith(
-                            color: grey.withOpacity(0.7),
+                            color: grey,
                           ),
                         ),
                       ),
@@ -122,11 +129,38 @@ class _AddAddressBottomSheetState extends State<AddAddressBottomSheet> {
                         nearbyLandmarkController: nearbyLandmarkController,
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(top: 20.0, bottom: 15),
+                        padding: const EdgeInsets.only(top: 20.0, bottom: 20),
                         child: CustomButton(
                           text: "Save Address",
                           borderRadius: 10,
-                          onPressed: () {},
+                          onPressed: () {
+                            final flat = flatHouseFloorBuildingController.text.trim();
+                            final area = areaSectorLocalityController.text.trim();
+                            final landmark = nearbyLandmarkController.text.trim();
+
+                            String fullAddress = "";
+                            if (flat.isNotEmpty && area.isNotEmpty) {
+                              fullAddress = "$flat, $area${landmark.isNotEmpty ? ' (Near $landmark)' : ''}";
+                            } else if (flat.isNotEmpty) {
+                              fullAddress = flat;
+                            } else if (area.isNotEmpty) {
+                              fullAddress = area;
+                            } else {
+                              fullAddress = "Flat 402, Block B, Green Park, Delhi";
+                            }
+
+                            if (widget.onAddressSaved != null) {
+                              widget.onAddressSaved!(fullAddress);
+                            }
+                            Navigator.pop(context);
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(
+                                content: Text("Address saved successfully!"),
+                                backgroundColor: greenColor,
+                                duration: Duration(seconds: 2),
+                              ),
+                            );
+                          },
                         ),
                       ),
                     ],

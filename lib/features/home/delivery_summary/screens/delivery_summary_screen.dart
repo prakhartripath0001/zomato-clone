@@ -7,6 +7,7 @@ import 'package:zomato_clone/common/widgets/offer_icon_widget.dart';
 import 'package:zomato_clone/features/home/delivery_summary/widgets/add_more_items_and_cooking_instructions_widget.dart';
 import 'package:zomato_clone/features/home/delivery_summary/widgets/added_items_widget.dart';
 import 'package:zomato_clone/features/home/delivery_summary/widgets/tip_widget.dart';
+import 'package:zomato_clone/features/home/main_home/screens/main_home_screen.dart';
 
 class DeliverySummaryScreen extends StatefulWidget {
   static const routeName = "/delivery-summary-screen";
@@ -19,6 +20,8 @@ class DeliverySummaryScreen extends StatefulWidget {
 
 class _DeliverySummaryScreenState extends State<DeliverySummaryScreen> {
   TextTheme? textTheme;
+  String _deliveryAddress = "Home • Green Park, New Delhi";
+  String _selectedPaymentMethod = "Google Pay UPI";
 
   @override
   Widget build(BuildContext context) {
