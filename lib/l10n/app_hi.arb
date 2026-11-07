@@ -2,5 +2,10 @@
   "appName": "ज़ोमाटो",
   "@appName": {
     "description": "App Name"
-  }
+  },
+  "delivery": "डिलीवरी",
+  "money": "मनी",
+  "searchHint": "रेस्तरां या व्यंजन खोजें...",
+  "chooseLanguage": "भाषा चुनें",
+  "selectLanguage": "भाषा का चयन करें"
 }

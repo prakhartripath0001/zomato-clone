@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:zomato_clone/features/splash/splash_screen.dart';
+import 'package:zomato_clone/navigation/navigation.dart';
 import 'package:zomato_clone/routes/main_router.dart';
 import 'package:zomato_clone/common/constants/colors.dart';
 import 'package:zomato_clone/l10n/app_localizations.dart';
@@ -12,12 +11,12 @@ void main() {
   runApp(const ProviderScope(child: MyApp()));
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends ConsumerWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final currentLocale = ref.watch(appLocaleProvider);
     const displayTextStyle = TextStyle(
       fontWeight: FontWeight.w800,
       fontSize: 22,
@@ -40,17 +39,12 @@ class MyApp extends StatelessWidget {
     );
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      locale: currentLocale,
       onGenerateTitle: (context) => AppLocalizations.of(context)!.appName,
-      localizationsDelegates: const [
-        AppLocalizations.delegate, // Add this line
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate,
-      ],
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: const [
         Locale('en'), // English
-        Locale('hi'), // Spanish
-        Locale('or'), // Spanish
+        Locale('hi'), // Hindi
       ],
       theme: ThemeData(
         fontFamily: "custom_font",

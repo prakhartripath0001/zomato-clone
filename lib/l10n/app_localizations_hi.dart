@@ -10,4 +10,19 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get appName => 'ज़ोमाटो';
+
+  @override
+  String get delivery => 'डिलीवरी';
+
+  @override
+  String get money => 'मनी';
+
+  @override
+  String get searchHint => 'रेस्तरां या व्यंजन खोजें...';
+
+  @override
+  String get chooseLanguage => 'भाषा चुनें';
+
+  @override
+  String get selectLanguage => 'भाषा का चयन करें';
 }

@@ -12,7 +12,9 @@ import 'package:zomato_clone/common/widgets/restaurant_item_widget.dart';
 import 'package:zomato_clone/common/models/pair.dart';
 import 'package:zomato_clone/features/home/restaurant_page/screens/restaurant_page_screen.dart';
 import 'package:zomato_clone/features/home/restaurants_and_dishes/restaurants_and_dishes_screen.dart';
+import 'package:zomato_clone/common/utils/utils.dart';
 import 'package:zomato_clone/features/home/search_screen/search_screen.dart';
+import 'package:zomato_clone/l10n/app_localizations.dart';
 import 'package:zomato_clone/navigation/navigation.dart';
 
 class DeliveryScreen extends ConsumerStatefulWidget {
@@ -90,7 +92,9 @@ class _DeliveryScreenState extends ConsumerState<DeliveryScreen> {
                   InkWell(
                     borderRadius: const BorderRadius.all(Radius.circular(10)),
                     splashColor: lightGrey,
-                    onTap: () {},
+                    onTap: () {
+                      showLanguageSelectionBottomSheet(context, ref);
+                    },
                     child: Container(
                       height: 30,
                       width: 30,
@@ -134,7 +138,7 @@ class _DeliveryScreenState extends ConsumerState<DeliveryScreen> {
                 Navigator.pushNamed(context, SearchScreen.routeName);
               },
             ),
-            hint: "Restaurant name or a dish...",
+            hint: AppLocalizations.of(context)?.searchHint ?? "Restaurant name or a dish...",
             onClick: () {
               Navigator.pushNamed(context, SearchScreen.routeName);
             },

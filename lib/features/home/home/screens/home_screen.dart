@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:zomato_clone/common/constants/colors.dart';
 import 'package:zomato_clone/features/home/delivery/screens/delivery_screen.dart';
 import 'package:zomato_clone/features/home/money/screens/money_screen.dart';
+import 'package:zomato_clone/l10n/app_localizations.dart';
 
 class HomeScreen extends ConsumerStatefulWidget {
   static const routeName = "/home-screen";
@@ -51,7 +52,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> with AutomaticKeepAlive
           children: [
             bottomNavigationItem(
               imageIcon: "assets/images/delivery_${_currentPage == 0 ? "selected_" : ""}icon.png",
-              label: "Delivery",
+              label: AppLocalizations.of(context)?.delivery ?? "Delivery",
               isSelected: _currentPage == 0,
               onClick: () {
                 if (_currentPage != 0) {
@@ -69,7 +70,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> with AutomaticKeepAlive
             ),
             bottomNavigationItem(
               imageIcon: "assets/images/wallet_${_currentPage == 1 ? "selected_" : ""}icon.png",
-              label: "Money",
+              label: AppLocalizations.of(context)?.money ?? "Money",
               isSelected: _currentPage == 1,
               onClick: () {
                 if (_currentPage != 1) {

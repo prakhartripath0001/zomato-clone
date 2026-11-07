@@ -10,4 +10,19 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get appName => 'Zomato';
+
+  @override
+  String get delivery => 'Delivery';
+
+  @override
+  String get money => 'Money';
+
+  @override
+  String get searchHint => 'Restaurant name or a dish...';
+
+  @override
+  String get chooseLanguage => 'Choose language';
+
+  @override
+  String get selectLanguage => 'Select Language';
 }

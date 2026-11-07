@@ -2,5 +2,10 @@
   "appName": "Zomato",
   "@appName": {
     "description": "App Name"
-  }
+  },
+  "delivery": "Delivery",
+  "money": "Money",
+  "searchHint": "Restaurant name or a dish...",
+  "chooseLanguage": "Choose language",
+  "selectLanguage": "Select Language"
 }

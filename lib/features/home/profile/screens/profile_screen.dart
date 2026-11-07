@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:zomato_clone/common/constants/colors.dart';
+import 'package:zomato_clone/common/utils/utils.dart';
 import 'package:zomato_clone/features/loginandsignup/controller/login_signup_controller.dart';
 import 'package:zomato_clone/features/home/profile/widgets/profile_header_widget.dart';
 import 'package:zomato_clone/navigation/navigation.dart';
@@ -430,7 +431,9 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
             listItemLabelWidget(
               label: "Choose language",
               imageIcon: "${baseImageLocation}change_language_icon.png",
-              onClick: () {},
+              onClick: () {
+                showLanguageSelectionBottomSheet(context, ref);
+              },
             ),
             listItemLabelWidget(
               label: "About",
