@@ -5,7 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:zomato_clone/features/splash/splash_screen.dart';
 import 'package:zomato_clone/routes/main_router.dart';
 import 'package:zomato_clone/common/constants/colors.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:zomato_clone/l10n/app_localizations.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -101,11 +101,11 @@ class MyApp extends StatelessWidget {
           backgroundColor: white,
           surfaceTintColor: white,
         ),
-        bottomAppBarTheme: const BottomAppBarTheme(
+        bottomAppBarTheme: const BottomAppBarThemeData(
           color: white,
           surfaceTintColor: white,
         ),
-        cardTheme: const CardTheme(color: white, surfaceTintColor: white),
+        cardTheme: const CardThemeData(color: white, surfaceTintColor: white),
         progressIndicatorTheme: const ProgressIndicatorThemeData(
           color: primaryColor,
         ),

@@ -42,13 +42,13 @@ dependencies:
   cached_network_image: ^3.2.3
   intl: ^0.20.3
   google_fonts: ^6.1.0
-  pinput: ^2.2.31
+  pinput: ^7.0.0
   lottie: ^2.4.0
   styled_text: ^8.1.0
   flutter_map: ^5.0.0
   latlong2: ^0.9.0
-  geolocator: ^10.0.1
-  geocoding: ^2.1.0
+  geolocator: ^14.1.2
+  geocoding: ^5.0.1
 
 dev_dependencies:
   flutter_launcher_icons: ^0.11.0

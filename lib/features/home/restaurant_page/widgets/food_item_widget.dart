@@ -6,7 +6,6 @@ import 'package:zomato_clone/common/widgets/best_seller_widget.dart';
 import 'package:zomato_clone/common/widgets/bordered_rating_widget.dart';
 import 'package:zomato_clone/common/widgets/custom_dashed_divider.dart';
 import 'package:zomato_clone/common/widgets/veg_or_non_veg_icon_widget.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:zomato_clone/features/home/restaurant_page/screens/buy_food_item_bottom_sheet_screen.dart';
 import 'package:zomato_clone/features/home/restaurant_page/screens/restaurant_page_screen.dart';
 
@@ -43,7 +42,6 @@ class _FoodItemWidgetState extends ConsumerState<FoodItemWidget> {
   Widget build(BuildContext context) {
     final width = MediaQuery.sizeOf(context).width;
     final textTheme = Theme.of(context).textTheme;
-    final localText = AppLocalizations.of(context)!;
     return GestureDetector(
       onTap: showFoodItemBottomSheet,
       child: Container(

@@ -3,7 +3,6 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:geocoding/geocoding.dart';
-import 'package:geolocator/geolocator.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:zomato_clone/common/constants/colors.dart';
 import 'package:zomato_clone/common/models/pair.dart';
@@ -22,6 +21,7 @@ class _MapWidgetState extends State<MapWidget> with TickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> _animation;
   final MapController mapController = MapController();
+  final Geocoding geocoding = Geocoding();
   final pointSize = 50.0;
   var pointY = 0.0;
   LatLng? latLng;
@@ -234,7 +234,10 @@ class _MapWidgetState extends State<MapWidget> with TickerProviderStateMixin {
   }
 
   void areaFromLatLng() async {
-    placemark = (await placemarkFromCoordinates(latLng!.latitude, latLng!.longitude))[0];
+    placemark = (await geocoding.placemarkFromCoordinates(
+      latLng!.latitude,
+      latLng!.longitude,
+    ))[0];
     mapController.move(latLng!, 10);
     setState(() {});
   }
