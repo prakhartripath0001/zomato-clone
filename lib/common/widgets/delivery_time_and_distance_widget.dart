@@ -32,6 +32,7 @@ class DeliveryTimeAndDistanceWidget extends StatelessWidget {
           ? const EdgeInsets.only(top: 2, bottom: 8)
           : padding,
       child: Row(
+        mainAxisSize: MainAxisSize.min,
         children: [
           const Icon(
             Icons.timelapse_rounded,

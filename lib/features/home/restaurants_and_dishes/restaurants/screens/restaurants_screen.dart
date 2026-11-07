@@ -206,7 +206,10 @@ class _RestaurantsScreenState extends ConsumerState<RestaurantsScreen>
               distance: item.distance,
               discount: item.discount,
               onClick: (restaurant) {
-                Navigator.of(context, rootNavigator: true).pushNamed(RestaurantPageScreen.routeName);
+                Navigator.of(context, rootNavigator: true).pushNamed(
+                  RestaurantPageScreen.routeName,
+                  arguments: restaurant,
+                );
               },
             );
           },

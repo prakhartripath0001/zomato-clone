@@ -53,9 +53,13 @@ class _RestaurantPageScreenState extends ConsumerState<RestaurantPageScreen>
   @override
   Widget build(BuildContext context) {
     textTheme = Theme.of(context).textTheme;
-    if(ref.watch(itemBarController)>0){
-      _toggleItemAddedContainer();
-    }
+    final args = ModalRoute.of(context)?.settings.arguments;
+    final displayName = (args is String && args.isNotEmpty) ? args : "Anjana Restaurant";
+    ref.listen<int>(itemBarController, (previous, next) {
+      if (next > 0) {
+        _toggleItemAddedContainer();
+      }
+    });
     return Scaffold(
       backgroundColor: ghostWhite,
       body: Column(
@@ -107,7 +111,7 @@ class _RestaurantPageScreenState extends ConsumerState<RestaurantPageScreen>
                         Padding(
                           padding: const EdgeInsets.only(bottom: 5),
                           child: Text(
-                            "Anjana Restaurant",
+                            displayName,
                             style: textTheme?.titleSmall?.copyWith(
                               color: darkBlack,
                               fontSize: 24,
@@ -165,39 +169,34 @@ class _RestaurantPageScreenState extends ConsumerState<RestaurantPageScreen>
                           ),
                         ),
                         Container(
-                          padding: const EdgeInsets.all(10),
+                          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
                           decoration: BoxDecoration(
                             color: ghostWhite,
                             borderRadius: BorderRadius.circular(20),
                           ),
-                          child: IntrinsicHeight(
-                            child: Row(
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
-                                const DeliveryTimeAndDistanceWidget(
-                                  deliveryTime: const Pair(30, 35),
-                                  distance: 2000,
-                                  textColor: darkBlack,
-                                  addPadding: false,
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              const DeliveryTimeAndDistanceWidget(
+                                deliveryTime: Pair(30, 35),
+                                distance: 2000,
+                                textColor: darkBlack,
+                                addPadding: false,
+                              ),
+                              Container(
+                                height: 14,
+                                width: 1,
+                                margin: const EdgeInsets.symmetric(horizontal: 8),
+                                color: black.withValues(alpha: 0.35),
+                              ),
+                              Text(
+                                "Mal Godown Market",
+                                style: textTheme?.labelSmall?.copyWith(
+                                  color: darkBlack.withValues(alpha: 0.85),
                                 ),
-                                Padding(
-                                  padding: const EdgeInsets.symmetric(
-                                      horizontal: 5, vertical: 2),
-                                  child: VerticalDivider(
-                                    color: black.withValues(alpha: 0.65),
-                                  ),
-                                ),
-                                Flexible(
-                                  child: Text(
-                                    "Mal Godown Market",
-                                    style: textTheme?.labelSmall?.copyWith(
-                                      color: darkBlack.withValues(alpha: 0.85),
-                                    ),
-                                    overflow: TextOverflow.ellipsis,
-                                  ),
-                                ),
-                              ],
-                            ),
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                            ],
                           ),
                         ),
                       ],
@@ -205,18 +204,15 @@ class _RestaurantPageScreenState extends ConsumerState<RestaurantPageScreen>
                   ),
                 ),
                 const OfferWidget(),
-                const SliverAppBar(
-                  backgroundColor: ghostWhite,
-                  pinned: true,
-                  automaticallyImplyLeading: false,
-                  titleSpacing: 0,
-                  toolbarHeight: 31,
-                  flexibleSpace: FilterListWidget(),
+                const SliverToBoxAdapter(
+                  child: FilterListWidget(),
                 ),
                 SliverList.builder(
                   itemCount: 10,
                   itemBuilder: (context, index) {
-                    return const ExpandableMenuWidget();
+                    return ExpandableMenuWidget(
+                      initialExpanded: index == 0,
+                    );
                   },
                 ),
               ],

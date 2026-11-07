@@ -26,8 +26,8 @@ class CustomImageWidget extends StatelessWidget {
         height: height,
         width: width,
         fit: fit,
-        memCacheWidth: (width * 2).toInt().clamp(100, 1000),
-        memCacheHeight: (height * 2).toInt().clamp(100, 1000),
+        memCacheWidth: width.isFinite ? (width * 2).toInt().clamp(100, 1000) : null,
+        memCacheHeight: height.isFinite ? (height * 2).toInt().clamp(100, 1000) : null,
         placeholder: (context, url) => Container(
           color: ghostWhite,
           child: const Center(

@@ -3,7 +3,16 @@
 A feature-rich, pixel-perfect **Zomato Clone** built with **Flutter & Dart**, replicating the core food discovery, ordering, and delivery experience of the Zomato mobile app.
 
 **Author:** [Prakhar Tripathi](https://github.com/Prakhar-Tripathi)  
+**Video Demo:** [![YouTube](https://img.shields.io/badge/YouTube-Watch%20Live%20Demo-red?style=flat&logo=youtube)](https://www.youtube.com/live/vN_i7-8ND0o?si=Od6redDzDr43GU4b)  
 > *Disclaimer: This is an independent portfolio and learning project. It is not affiliated with, endorsed by, or sponsored by Zomato.*
+
+---
+
+## 📺 Live Demo & Video Walkthrough
+
+Watch the complete live development & app walkthrough on YouTube:  
+👉 **[Watch Live Stream on YouTube](https://www.youtube.com/live/vN_i7-8ND0o?si=Od6redDzDr43GU4b)**
+
 
 ---
 

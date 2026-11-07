@@ -14,19 +14,28 @@ class OfferWidget extends StatefulWidget {
 class _OfferWidgetState extends State<OfferWidget> {
   var _currentPage = 0;
   final pageController = PageController();
+  Timer? _timer;
 
   @override
   void initState() {
     super.initState();
-    Timer.periodic(const Duration(seconds: 2), (Timer timer) {
+    _timer = Timer.periodic(const Duration(seconds: 2), (Timer timer) {
+      if (!mounted || !pageController.hasClients) return;
       _currentPage = (_currentPage + 1) % 5;
       pageController.animateToPage(
         _currentPage,
         duration: const Duration(milliseconds: 350),
         curve: Curves.easeIn,
       );
-      setState(() {});
+      if (mounted) setState(() {});
     });
+  }
+
+  @override
+  void dispose() {
+    _timer?.cancel();
+    pageController.dispose();
+    super.dispose();
   }
 
   @override

@@ -306,27 +306,34 @@ class _BuyFoodItemBottomSheetScreenState
                   child: ItemCounterWidget(
                     height: 50,
                     counter: (count) {
-                      totalNumberCount = count;
+                      setState(() {
+                        totalNumberCount = count;
+                      });
                     },
                     currentCounter: totalNumberCount,
                   ),
                 ),
                 Flexible(
                   flex: 8,
-                  child: Container(
-                    height: 50,
-                    margin: const EdgeInsets.only(left: 15),
-                    decoration: BoxDecoration(
-                      color: primaryColorVariant,
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    alignment: Alignment.center,
-                    padding: const EdgeInsets.all(10),
-                    child: Text(
-                      "Add item ₹${totalNumberCount * quantityNameAndPrice[selectedQuantity].second}",
-                      style: textTheme.labelMedium?.copyWith(
-                        fontSize: 18,
-                        color: white,
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.pop(context);
+                    },
+                    child: Container(
+                      height: 50,
+                      margin: const EdgeInsets.only(left: 15),
+                      decoration: BoxDecoration(
+                        color: primaryColorVariant,
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      alignment: Alignment.center,
+                      padding: const EdgeInsets.all(10),
+                      child: Text(
+                        "Add item ₹${totalNumberCount * quantityNameAndPrice[selectedQuantity].second}",
+                        style: textTheme.labelMedium?.copyWith(
+                          fontSize: 18,
+                          color: white,
+                        ),
                       ),
                     ),
                   ),

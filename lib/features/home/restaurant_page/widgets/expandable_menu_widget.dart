@@ -3,14 +3,21 @@ import 'package:zomato_clone/common/constants/colors.dart';
 import 'package:zomato_clone/features/home/restaurant_page/widgets/restaurant_menu_items_widget.dart';
 
 class ExpandableMenuWidget extends StatefulWidget {
-  const ExpandableMenuWidget({Key? key}) : super(key: key);
+  final bool initialExpanded;
+  const ExpandableMenuWidget({Key? key, this.initialExpanded = false}) : super(key: key);
 
   @override
   State<ExpandableMenuWidget> createState() => _ExpandableMenuWidgetState();
 }
 
 class _ExpandableMenuWidgetState extends State<ExpandableMenuWidget> {
-  var expanded = false;
+  late bool expanded;
+
+  @override
+  void initState() {
+    super.initState();
+    expanded = widget.initialExpanded;
+  }
 
   @override
   Widget build(BuildContext context) {

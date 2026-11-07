@@ -218,8 +218,12 @@ class _SearchScreenState extends State<SearchScreen> {
     });
   }
 
-  void _navigateToRestaurant() {
-    Navigator.pushNamed(context, RestaurantPageScreen.routeName);
+  void _navigateToRestaurant([String? restaurantName]) {
+    Navigator.pushNamed(
+      context,
+      RestaurantPageScreen.routeName,
+      arguments: restaurantName,
+    );
   }
 
   @override
@@ -404,7 +408,7 @@ class _SearchScreenState extends State<SearchScreen> {
 
   Widget _buildItemRow(_SearchItem item, TextTheme textTheme) {
     return InkWell(
-      onTap: _navigateToRestaurant,
+      onTap: () => _navigateToRestaurant(item.isRestaurant ? item.title : item.subtitle),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
         child: Row(
