@@ -1,7 +1,6 @@
-class Pair<T,E>{
+class Pair<T, E> {
   final T first;
   final E second;
 
-  Pair(this.first, this.second);
-
+  const Pair(this.first, this.second);
 }

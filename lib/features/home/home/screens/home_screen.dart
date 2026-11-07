@@ -41,7 +41,10 @@ class _HomeScreenState extends ConsumerState<HomeScreen> with AutomaticKeepAlive
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
-        child: screens[_currentPage],
+        child: IndexedStack(
+          index: _currentPage,
+          children: screens,
+        ),
       ),
       bottomNavigationBar: BottomAppBar(
         padding: EdgeInsets.zero,

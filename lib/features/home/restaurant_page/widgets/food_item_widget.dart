@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:zomato_clone/common/constants/colors.dart';
@@ -116,11 +117,20 @@ class _FoodItemWidgetState extends ConsumerState<FoodItemWidget> {
                             padding: const EdgeInsets.only(bottom: 18.0),
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(15),
-                              child: Image.network(
-                                "https://www.cubesnjuliennes.com/wp-content/uploads/2020/07/Chicken-Biryani-Recipe.jpg",
+                              child: CachedNetworkImage(
+                                imageUrl: widget.imageUrl.isNotEmpty
+                                    ? widget.imageUrl
+                                    : "https://c.ndtvimg.com/2022-04/fq5cs53_biryani-doubletree-by-hilton_625x300_12_April_22.jpg",
                                 width: width * 0.39,
                                 height: width * 0.39,
                                 fit: BoxFit.cover,
+                                memCacheWidth: 350,
+                                memCacheHeight: 350,
+                                placeholder: (context, url) => Container(color: ghostWhite),
+                                errorWidget: (context, url, error) => Container(
+                                  color: ghostWhite,
+                                  child: const Icon(Icons.fastfood, color: midLightGrey),
+                                ),
                               ),
                             ),
                           ),

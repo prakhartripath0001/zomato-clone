@@ -1,5 +1,4 @@
-import 'dart:developer';
-
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:zomato_clone/common/constants/colors.dart';
 
@@ -13,7 +12,8 @@ class CustomImageWidget extends StatelessWidget {
     Key? key,
     required this.imageUrl,
     required this.height,
-    required this.width, required this.fit,
+    required this.width,
+    required this.fit,
   }) : super(key: key);
 
   @override
@@ -21,38 +21,41 @@ class CustomImageWidget extends StatelessWidget {
     return SizedBox(
       height: height,
       width: width,
-      child: Image.network(
-        imageUrl,
+      child: CachedNetworkImage(
+        imageUrl: imageUrl,
         height: height,
         width: width,
         fit: fit,
-        loadingBuilder: (context, child, imageChunkEvent){
-          if(imageChunkEvent==null){
-            return child;
-          }
-          double? loaded;
-          if(imageChunkEvent.expectedTotalBytes!=null){
-            loaded = imageChunkEvent.cumulativeBytesLoaded / imageChunkEvent.expectedTotalBytes!;
-          }
-          log(loaded.toString());
-          return Center(
-            child: CircularProgressIndicator(
-              value: loaded,
+        memCacheWidth: (width * 2).toInt().clamp(100, 1000),
+        memCacheHeight: (height * 2).toInt().clamp(100, 1000),
+        placeholder: (context, url) => Container(
+          color: ghostWhite,
+          child: const Center(
+            child: SizedBox(
+              width: 20,
+              height: 20,
+              child: CircularProgressIndicator(strokeWidth: 2, color: primaryColor),
             ),
-          );
-        },
-        errorBuilder: (context, _, __) {
-          return const Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Icon(
-                Icons.error_outline,
-                color: primaryColor,
-              ),
-              Text(
-                "Some Error Occurred",
-              ),
-            ],
+          ),
+        ),
+        errorWidget: (context, _, __) {
+          return const Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Icon(
+                  Icons.error_outline,
+                  color: primaryColor,
+                  size: 24,
+                ),
+                SizedBox(height: 4),
+                Text(
+                  "Image unavailable",
+                  style: TextStyle(fontSize: 11, color: grey),
+                ),
+              ],
+            ),
           );
         },
       ),

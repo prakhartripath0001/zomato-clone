@@ -33,7 +33,14 @@ class DishesItemWidget extends StatelessWidget {
                       child: CachedNetworkImage(
                         imageUrl:
                             "https://madscookhouse.com/wp-content/uploads/2020/10/Paneer-Butter-Masala-Nut-Free.jpg",
-                        fit: BoxFit.fill,
+                        fit: BoxFit.cover,
+                        memCacheWidth: 400,
+                        memCacheHeight: 360,
+                        placeholder: (context, url) => Container(color: ghostWhite),
+                        errorWidget: (context, url, error) => Container(
+                          color: ghostWhite,
+                          child: const Icon(Icons.fastfood, color: grey),
+                        ),
                       ),
                     ),
                   ),
