@@ -74,12 +74,16 @@ abstract class AppLocalizations {
   static const LocalizationsDelegate<AppLocalizations> delegate =
       _AppLocalizationsDelegate();
 
-  /// A list of this localizations delegate's preferred locales.
-  static const List<Locale> supportedLocales = <Locale>[
-    Locale('en'),
-    Locale('hi'),
-  ];
-
+  /// A list of this localizations delegate along with the default localizations
+  /// delegates.
+  ///
+  /// Returns a list of localizations delegates containing this delegate along with
+  /// GlobalMaterialLocalizations.delegate, GlobalCupertinoLocalizations.delegate,
+  /// and GlobalWidgetsLocalizations.delegate.
+  ///
+  /// Additional delegates can be added by appending to this list in
+  /// MaterialApp. This list does not have to be used at all if a custom list
+  /// of delegates is preferred or required.
   static const List<LocalizationsDelegate<dynamic>> localizationsDelegates =
       <LocalizationsDelegate<dynamic>>[
     delegate,
@@ -88,11 +92,46 @@ abstract class AppLocalizations {
     GlobalWidgetsLocalizations.delegate,
   ];
 
+  /// A list of this localizations delegate's supported locales.
+  static const List<Locale> supportedLocales = <Locale>[
+    Locale('en'),
+    Locale('hi')
+  ];
+
+  /// App Name
+  ///
+  /// In en, this message translates to:
+  /// **'Zomato'**
   String get appName;
+
+  /// No description provided for @delivery.
+  ///
+  /// In en, this message translates to:
+  /// **'Delivery'**
   String get delivery;
+
+  /// No description provided for @money.
+  ///
+  /// In en, this message translates to:
+  /// **'Money'**
   String get money;
+
+  /// No description provided for @searchHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Restaurant name or a dish...'**
   String get searchHint;
+
+  /// No description provided for @chooseLanguage.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose language'**
   String get chooseLanguage;
+
+  /// No description provided for @selectLanguage.
+  ///
+  /// In en, this message translates to:
+  /// **'Select Language'**
   String get selectLanguage;
 }
 
@@ -114,6 +153,7 @@ class _AppLocalizationsDelegate
 }
 
 AppLocalizations lookupAppLocalizations(Locale locale) {
+  // Lookup logic when only language code is specified.
   switch (locale.languageCode) {
     case 'en':
       return AppLocalizationsEn();
