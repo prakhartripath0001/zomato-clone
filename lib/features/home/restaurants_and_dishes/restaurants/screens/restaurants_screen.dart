@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:zomato_clone/common/constants/colors.dart';
 import 'package:zomato_clone/common/models/pair.dart';
+import 'package:flutter/rendering.dart' show ScrollCacheExtent;
 import 'package:zomato_clone/common/widgets/add_filter_widget.dart';
 import 'package:zomato_clone/features/home/home/widgets/recipe_item_widget.dart';
 import 'package:zomato_clone/common/widgets/restaurant_item_widget.dart';
