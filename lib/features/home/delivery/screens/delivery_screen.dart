@@ -174,8 +174,7 @@ class _DeliveryScreenState extends ConsumerState<DeliveryScreen> {
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
     return CustomScrollView(
-      cacheExtent: 500,
-      slivers: [
+      scrollCacheExtent: ScrollCacheExtent.pixels(500), slivers: [
         SliverToBoxAdapter(
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10),
@@ -306,7 +305,7 @@ class _DeliveryScreenState extends ConsumerState<DeliveryScreen> {
                       decoration: BoxDecoration(
                         borderRadius: const BorderRadius.all(Radius.circular(15)),
                         border: Border.fromBorderSide(
-                          BorderSide(color: lightGrey.withOpacity(0.8), width: 1),
+                          BorderSide(color: lightGrey.withValues(alpha: 0.8), width: 1),
                         ),
                       ),
                       child: Row(

@@ -45,7 +45,7 @@ class DeliveryTimeAndDistanceWidget extends StatelessWidget {
             "${deliveryTime.first}-${deliveryTime.second} min",
             style: textTheme.bodyLarge?.copyWith(
               fontSize: 14,
-              color: textColor ?? grey.withOpacity(0.8),
+              color: textColor ?? grey.withValues(alpha: 0.8),
             ),
           ),
           Padding(
@@ -60,7 +60,7 @@ class DeliveryTimeAndDistanceWidget extends StatelessWidget {
             distanceText,
             style: textTheme.bodyLarge?.copyWith(
               fontSize: 14,
-              color: textColor ?? grey.withOpacity(0.8),
+              color: textColor ?? grey.withValues(alpha: 0.8),
             ),
           ),
         ],

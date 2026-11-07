@@ -277,7 +277,7 @@ class _MoneyScreenState extends ConsumerState<MoneyScreen> {
                                 padding: const EdgeInsets.only(top: 5.0),
                                 child: Text(
                                   value,
-                                  style: textTheme?.bodyLarge?.copyWith(fontSize: 14, color: grey.withOpacity(0.8)),
+                                  style: textTheme?.bodyLarge?.copyWith(fontSize: 14, color: grey.withValues(alpha: 0.8)),
                                 ),
                               ),
                           ],

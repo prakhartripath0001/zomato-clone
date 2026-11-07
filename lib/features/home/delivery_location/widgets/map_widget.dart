@@ -98,7 +98,7 @@ class _MapWidgetState extends State<MapWidget> with TickerProviderStateMixin {
                     child: Padding(
                       padding: const EdgeInsets.only(top: 30),
                       child: CircleAvatar(
-                        backgroundColor: mapMarkerSurroundColor.withOpacity(0.6),
+                        backgroundColor: mapMarkerSurroundColor.withValues(alpha: 0.6),
                         radius: 8,
                       ),
                     ),

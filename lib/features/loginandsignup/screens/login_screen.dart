@@ -241,8 +241,8 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
               OutlinedButton(
                 onPressed: googleSignInOrSignUp,
                 style: ButtonStyle(
-                  overlayColor: MaterialStateProperty.all(lightGrey),
-                  shape: MaterialStateProperty.all(
+                  overlayColor: WidgetStateProperty.all(lightGrey),
+                  shape: WidgetStateProperty.all(
                     const CircleBorder(),
                   ),
                 ),
@@ -269,10 +269,10 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                               },
                               style: ButtonStyle(
                                 backgroundColor:
-                                    MaterialStateProperty.all(black),
+                                    WidgetStateProperty.all(black),
                                 overlayColor:
-                                    MaterialStateProperty.all(lightGrey),
-                                shape: MaterialStateProperty.all(
+                                    WidgetStateProperty.all(lightGrey),
+                                shape: WidgetStateProperty.all(
                                   const CircleBorder(),
                                 ),
                               ),
@@ -365,8 +365,8 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                       backgroundColor: transparent);
                 },
                 style: ButtonStyle(
-                  overlayColor: MaterialStateProperty.all(lightGrey),
-                  shape: MaterialStateProperty.all(
+                  overlayColor: WidgetStateProperty.all(lightGrey),
+                  shape: WidgetStateProperty.all(
                     const CircleBorder(),
                   ),
                 ),

@@ -21,7 +21,7 @@ class NameAndPhoneNumberWidget extends StatelessWidget {
     );
     final normalBorder = enabledBorder.copyWith(
       borderSide: BorderSide(
-        color: midLightGrey.withOpacity(0.5),
+        color: midLightGrey.withValues(alpha: 0.5),
       ),
     );
     return Column(
@@ -52,7 +52,7 @@ class NameAndPhoneNumberWidget extends StatelessWidget {
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
                         border: Border.all(
-                          color: grey.withOpacity(0.8),
+                          color: grey.withValues(alpha: 0.8),
                         ),
                       ),
                       child: Image.asset(

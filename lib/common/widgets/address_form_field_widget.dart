@@ -45,7 +45,7 @@ class _AddressFormFieldWidgetState extends State<AddressFormFieldWidget> {
     );
     final normalBorder = enabledBorder.copyWith(
       borderSide: BorderSide(
-        color: midLightGrey.withOpacity(0.5),
+        color: midLightGrey.withValues(alpha: 0.5),
       ),
     );
     return TextFormField(

@@ -60,7 +60,7 @@ class _AddressTypeWidgetState extends State<AddressTypeWidget> {
               border: Border.all(
                 color: addressType == type ? primaryColorVariant : midLightGrey,
               ),
-              color: addressType == type ? primaryColorVariant.withOpacity(0.05) : null,
+              color: addressType == type ? primaryColorVariant.withValues(alpha: 0.05) : null,
             ),
             padding: const EdgeInsets.symmetric(
               horizontal: 20,

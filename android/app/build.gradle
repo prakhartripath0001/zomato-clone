@@ -13,10 +13,6 @@ android {
         targetCompatibility JavaVersion.VERSION_17
     }
 
-    sourceSets {
-        main.java.srcDirs += 'src/main/kotlin'
-    }
-
     defaultConfig {
         applicationId "com.sekhgmainuddin.zomato_clone"
         minSdkVersion 28

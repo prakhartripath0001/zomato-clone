@@ -117,8 +117,7 @@ class _RestaurantsScreenState extends ConsumerState<RestaurantsScreen>
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
     return CustomScrollView(
-      cacheExtent: 500,
-      slivers: [
+      scrollCacheExtent: ScrollCacheExtent.pixels(500), slivers: [
         SliverAppBar(
           titleSpacing: 0,
           automaticallyImplyLeading: false,

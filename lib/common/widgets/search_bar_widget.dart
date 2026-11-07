@@ -36,7 +36,7 @@ class SearchBarWidget extends ConsumerWidget {
       decoration: BoxDecoration(
         borderRadius: const BorderRadius.all(Radius.circular(15)),
         border: Border.fromBorderSide(
-          BorderSide(color: lightGrey.withOpacity(0.8), width: 1),
+          BorderSide(color: lightGrey.withValues(alpha: 0.8), width: 1),
         ),
       ),
       margin: const EdgeInsets.only(top: 15, bottom: 10),

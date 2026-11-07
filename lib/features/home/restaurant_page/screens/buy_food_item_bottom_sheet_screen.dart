@@ -19,9 +19,9 @@ class BuyFoodItemBottomSheetScreen extends StatefulWidget {
 class _BuyFoodItemBottomSheetScreenState
     extends State<BuyFoodItemBottomSheetScreen> {
   final quantityNameAndPrice = [
-    Pair("Small", 162),
-    Pair("Medium", 216),
-    Pair("Large", 405),
+    const Pair("Small", 162),
+    const Pair("Medium", 216),
+    const Pair("Large", 405),
   ];
 
   var selectedQuantity = 0;
@@ -207,7 +207,7 @@ class _BuyFoodItemBottomSheetScreenState
                                   decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(5),
                                     border: Border.all(
-                                        color: bigFootFeet.withOpacity(0.7)),
+                                        color: bigFootFeet.withValues(alpha: 0.7)),
                                   ),
                                   padding: const EdgeInsets.symmetric(
                                       horizontal: 6, vertical: 2),

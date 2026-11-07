@@ -17,7 +17,7 @@ class ProfileHeader extends ConsumerWidget {
         color: white,
         borderRadius: BorderRadius.circular(20),
         boxShadow: [
-          BoxShadow(color: black.withOpacity(0.12), blurRadius: 10),
+          BoxShadow(color: black.withValues(alpha: 0.12), blurRadius: 10),
         ],
       ),
       child: Column(

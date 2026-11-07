@@ -25,7 +25,7 @@ class _RestaurantWithDishesItemWidgetState
           borderRadius: BorderRadius.circular(20),
         boxShadow: [
           BoxShadow(
-            color: black.withOpacity(0.3),
+            color: black.withValues(alpha: 0.3),
             blurRadius: 5,
             offset: const Offset(1, 1.5)
           )
@@ -42,11 +42,11 @@ class _RestaurantWithDishesItemWidgetState
               textSize: 22,
             ),
           ),
-          DeliveryTimeAndDistanceWidget(
-            deliveryTime: Pair(35, 30),
+          const DeliveryTimeAndDistanceWidget(
+            deliveryTime: const Pair(35, 30),
             distance: 3000,
             textColor: black,
-            padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 5),
+            padding: EdgeInsets.symmetric(horizontal: 14, vertical: 5),
           ),
           const DiscountWidget(
             discount: "50% OFF up to 100",

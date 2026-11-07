@@ -37,7 +37,7 @@ class _TipWidgetState extends State<TipWidget> {
                 Text(
                   "Your kindness means a lot! 100% of your tip will go directly to them",
                   style: textTheme?.labelSmall?.copyWith(
-                    color: grey.withOpacity(0.7),
+                    color: grey.withValues(alpha: 0.7),
                   ),
                 ),
               ],

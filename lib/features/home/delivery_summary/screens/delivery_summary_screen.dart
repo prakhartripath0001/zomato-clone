@@ -129,7 +129,7 @@ class _DeliverySummaryScreenState extends State<DeliverySummaryScreen> {
                               Text(
                                 "Get a coupon of up to 100% of your order value if we are not on time",
                                 style: textTheme?.labelSmall?.copyWith(
-                                    color: grey.withOpacity(0.85), height: 1),
+                                    color: grey.withValues(alpha: 0.85), height: 1),
                               ),
                             ],
                           ),
@@ -203,7 +203,7 @@ class _DeliverySummaryScreenState extends State<DeliverySummaryScreen> {
                                         "Code: FLATSLASH",
                                         style: textTheme?.labelSmall?.copyWith(
                                             fontSize: 15,
-                                            color: grey.withOpacity(0.7),
+                                            color: grey.withValues(alpha: 0.7),
                                             height: 1.7),
                                       ),
                                     ],
@@ -327,7 +327,7 @@ class _DeliverySummaryScreenState extends State<DeliverySummaryScreen> {
                         Text(
                           "includes ₹1 Fedding India donation",
                           style: textTheme?.labelSmall?.copyWith(
-                              color: grey.withOpacity(0.7), fontSize: 14),
+                              color: grey.withValues(alpha: 0.7), fontSize: 14),
                         ),
                         const SizedBox(
                           height: 15,
@@ -401,7 +401,7 @@ class _DeliverySummaryScreenState extends State<DeliverySummaryScreen> {
                                               BorderRadius.circular(12),
                                         ),
                                         side: BorderSide(
-                                          color: midLightGrey.withOpacity(0.5),
+                                          color: midLightGrey.withValues(alpha: 0.5),
                                         ),
                                       ),
                                       child: Row(
@@ -500,7 +500,7 @@ class _DeliverySummaryScreenState extends State<DeliverySummaryScreen> {
                                   Text(
                                     "Working towards a mainutrition-free India",
                                     style: textTheme?.labelSmall?.copyWith(
-                                      color: grey.withOpacity(0.8),
+                                      color: grey.withValues(alpha: 0.8),
                                     ),
                                   ),
                                   Text(
@@ -547,7 +547,7 @@ class _DeliverySummaryScreenState extends State<DeliverySummaryScreen> {
                                     Text(
                                       "Sekh Gulam Mainuddin, 1234567890",
                                       style: textTheme?.labelSmall?.copyWith(
-                                          color: grey.withOpacity(0.65),
+                                          color: grey.withValues(alpha: 0.65),
                                           height: 1.6),
                                     ),
                                   ],
@@ -576,7 +576,7 @@ class _DeliverySummaryScreenState extends State<DeliverySummaryScreen> {
                     child: Text(
                       "100% cancellation fee will be applicable if you decide to cancel the order anytime after order placement. Avoid cancellation as it leads to food wastage",
                       style: textTheme?.labelSmall?.copyWith(
-                        color: grey.withOpacity(0.65),
+                        color: grey.withValues(alpha: 0.65),
                       ),
                     ),
                   ),
@@ -647,7 +647,7 @@ class _DeliverySummaryScreenState extends State<DeliverySummaryScreen> {
               color: white,
               border: Border(
                 top: BorderSide(
-                  color: midLightGrey.withOpacity(0.3),
+                  color: midLightGrey.withValues(alpha: 0.3),
                 ),
               ),
             ),
@@ -678,7 +678,7 @@ class _DeliverySummaryScreenState extends State<DeliverySummaryScreen> {
                       Text(
                         "TOTAL AMOUNT",
                         style: textTheme?.bodySmall?.copyWith(
-                          color: white.withOpacity(0.85),
+                          color: white.withValues(alpha: 0.85),
                           fontSize: 10,
                           letterSpacing: 1.1,
                         ),
@@ -721,7 +721,7 @@ class _DeliverySummaryScreenState extends State<DeliverySummaryScreen> {
         child: Text(
           title,
           style: textTheme?.bodyLarge?.copyWith(
-            color: darkGrey.withOpacity(0.9),
+            color: darkGrey.withValues(alpha: 0.9),
             letterSpacing: 1.8,
             fontSize: 16,
           ),
@@ -735,8 +735,8 @@ class _DeliverySummaryScreenState extends State<DeliverySummaryScreen> {
           fontSize: fontSize,
           decoration: TextDecoration.lineThrough,
           decorationThickness: 2,
-          decorationColor: grey.withOpacity(0.6),
-          color: grey.withOpacity(0.6),
+          decorationColor: grey.withValues(alpha: 0.6),
+          color: grey.withValues(alpha: 0.6),
         ),
       );
 
@@ -783,7 +783,7 @@ class _DeliverySummaryScreenState extends State<DeliverySummaryScreen> {
         margin: const EdgeInsets.symmetric(vertical: 4),
         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
         decoration: BoxDecoration(
-          color: isSelected ? lavenderBlush.withOpacity(0.5) : ghostWhite,
+          color: isSelected ? lavenderBlush.withValues(alpha: 0.5) : ghostWhite,
           borderRadius: BorderRadius.circular(12),
           border: Border.all(
             color: isSelected ? primaryColorVariant : lightGrey,

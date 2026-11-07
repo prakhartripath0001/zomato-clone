@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:zomato_clone/common/constants/colors.dart';
-import 'package:zomato_clone/features/home/restaurant_page/widgets/food_item_widget.dart';
 import 'package:zomato_clone/features/home/restaurant_page/widgets/restaurant_menu_items_widget.dart';
 
 class ExpandableMenuWidget extends StatefulWidget {

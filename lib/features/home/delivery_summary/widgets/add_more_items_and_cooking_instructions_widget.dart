@@ -23,7 +23,7 @@ class AddMoreItemsAndCookingInstructionsWidget extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: CustomDashedDivider(
-                color: lightGrey.withOpacity(0.5),
+                color: lightGrey.withValues(alpha: 0.5),
                 size: 20,
               ),
             ),

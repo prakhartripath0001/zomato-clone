@@ -55,7 +55,7 @@ class _RestaurantPageScreenState extends ConsumerState<RestaurantPageScreen>
     textTheme = Theme.of(context).textTheme;
     if(ref.watch(itemBarController)>0){
       _toggleItemAddedContainer();
-    };
+    }
     return Scaffold(
       backgroundColor: ghostWhite,
       body: Column(
@@ -121,7 +121,7 @@ class _RestaurantPageScreenState extends ConsumerState<RestaurantPageScreen>
                               "Biryani",
                               style: textTheme?.bodyLarge?.copyWith(
                                 fontSize: 14,
-                                color: grey.withOpacity(0.8),
+                                color: grey.withValues(alpha: 0.8),
                               ),
                             ),
                             Padding(
@@ -129,14 +129,14 @@ class _RestaurantPageScreenState extends ConsumerState<RestaurantPageScreen>
                               child: Icon(
                                 Icons.circle,
                                 size: 2,
-                                color: grey.withOpacity(0.8),
+                                color: grey.withValues(alpha: 0.8),
                               ),
                             ),
                             Text(
                               "North Indian",
                               style: textTheme?.bodyLarge?.copyWith(
                                 fontSize: 14,
-                                color: grey.withOpacity(0.8),
+                                color: grey.withValues(alpha: 0.8),
                               ),
                             ),
                           ],
@@ -155,7 +155,7 @@ class _RestaurantPageScreenState extends ConsumerState<RestaurantPageScreen>
                                 "4.7K reviews",
                                 style: textTheme?.labelSmall
                                     ?.copyWith(
-                                      color: darkBlack.withOpacity(0.85),
+                                      color: darkBlack.withValues(alpha: 0.85),
                                     )
                                     .underlined(
                                         distance: 2,
@@ -174,8 +174,8 @@ class _RestaurantPageScreenState extends ConsumerState<RestaurantPageScreen>
                             child: Row(
                               mainAxisSize: MainAxisSize.min,
                               children: [
-                                DeliveryTimeAndDistanceWidget(
-                                  deliveryTime: Pair(30, 35),
+                                const DeliveryTimeAndDistanceWidget(
+                                  deliveryTime: const Pair(30, 35),
                                   distance: 2000,
                                   textColor: darkBlack,
                                   addPadding: false,
@@ -184,14 +184,14 @@ class _RestaurantPageScreenState extends ConsumerState<RestaurantPageScreen>
                                   padding: const EdgeInsets.symmetric(
                                       horizontal: 5, vertical: 2),
                                   child: VerticalDivider(
-                                    color: black.withOpacity(0.65),
+                                    color: black.withValues(alpha: 0.65),
                                   ),
                                 ),
                                 Flexible(
                                   child: Text(
                                     "Mal Godown Market",
                                     style: textTheme?.labelSmall?.copyWith(
-                                      color: darkBlack.withOpacity(0.85),
+                                      color: darkBlack.withValues(alpha: 0.85),
                                     ),
                                     overflow: TextOverflow.ellipsis,
                                   ),

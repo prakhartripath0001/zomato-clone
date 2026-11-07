@@ -95,7 +95,7 @@ class RestaurantItemWidget extends StatelessWidget {
                       Container(
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
-                          color: darkBlack.withOpacity(0.35),
+                          color: darkBlack.withValues(alpha: 0.35),
                         ),
                         child: IconButton(
                           padding: EdgeInsets.zero,
@@ -114,7 +114,7 @@ class RestaurantItemWidget extends StatelessWidget {
                       Container(
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
-                          color: darkBlack.withOpacity(0.35),
+                          color: darkBlack.withValues(alpha: 0.35),
                         ),
                         child: IconButton(
                           padding: EdgeInsets.zero,

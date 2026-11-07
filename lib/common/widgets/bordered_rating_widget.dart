@@ -28,9 +28,9 @@ class _BorderedRatingWidgetState extends State<BorderedRatingWidget> {
     return Container(
       padding: const EdgeInsets.all(3),
       decoration: BoxDecoration(
-          color: yellowColor.withOpacity(0.05),
+          color: yellowColor.withValues(alpha: 0.05),
           borderRadius: BorderRadius.circular(10),
-          border: Border.all(color: yellowColor.withOpacity(0.3))),
+          border: Border.all(color: yellowColor.withValues(alpha: 0.3))),
       child: StarRating(
         color: widget.color,
         size: widget.size,

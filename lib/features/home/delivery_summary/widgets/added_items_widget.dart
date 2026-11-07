@@ -102,7 +102,7 @@ class _AddedItemsWidgetState extends State<AddedItemsWidget> {
                 width: 92,
                 child: ItemCounterWidget(
                   height: 35,
-                  backgroundColor: primaryColorVariant.withOpacity(0.05),
+                  backgroundColor: primaryColorVariant.withValues(alpha: 0.05),
                   iconPadding: const EdgeInsets.all(4),
                   counter: (count) {
                     setState(() {
@@ -123,8 +123,8 @@ class _AddedItemsWidgetState extends State<AddedItemsWidget> {
                           ? textTheme?.labelSmall?.copyWith(
                               decoration: TextDecoration.lineThrough,
                               decorationThickness: 2,
-                              decorationColor: grey.withOpacity(0.9),
-                              color: grey.withOpacity(0.9),
+                              decorationColor: grey.withValues(alpha: 0.9),
+                              color: grey.withValues(alpha: 0.9),
                             )
                           : textTheme?.labelSmall,
                     ),

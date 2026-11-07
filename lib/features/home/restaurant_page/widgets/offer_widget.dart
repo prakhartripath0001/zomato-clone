@@ -44,7 +44,7 @@ class _OfferWidgetState extends State<OfferWidget> {
                 Container(
                   width: 65,
                   height: 65,
-                  color: lightBlueColor.withOpacity(0.2),
+                  color: lightBlueColor.withValues(alpha: 0.2),
                   padding: const EdgeInsets.all(15),
                   child: CachedNetworkImage(
                     imageUrl:
@@ -84,7 +84,7 @@ class _OfferWidgetState extends State<OfferWidget> {
                                   "use code JUPITERFEAST | above ",
                                   style: textTheme.bodyLarge?.copyWith(
                                     fontSize: 15,
-                                    color: grey.withOpacity(0.6),
+                                    color: grey.withValues(alpha: 0.6),
                                   ),
                                   overflow: TextOverflow.ellipsis,
                                 ),
@@ -106,7 +106,7 @@ class _OfferWidgetState extends State<OfferWidget> {
                         "${_currentPage + 1}/5",
                         style: textTheme.bodyLarge?.copyWith(
                           fontSize: 15,
-                          color: grey.withOpacity(0.6),
+                          color: grey.withValues(alpha: 0.6),
                         ),
                       ),
                       Row(
@@ -122,7 +122,7 @@ class _OfferWidgetState extends State<OfferWidget> {
                               decoration: BoxDecoration(
                                 color: isSelected
                                     ? primaryColor
-                                    : grey.withOpacity(0.6),
+                                    : grey.withValues(alpha: 0.6),
                                 borderRadius: BorderRadius.circular(8)
                               ),
                             );
