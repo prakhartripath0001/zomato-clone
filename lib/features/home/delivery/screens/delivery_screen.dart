@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart' show ScrollCacheExtent;
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:lottie/lottie.dart';
 import 'package:zomato_clone/common/constants/colors.dart';
-import 'package:flutter/rendering.dart' show ScrollCacheExtent;
 import 'package:zomato_clone/common/widgets/add_filter_widget.dart';
 import 'package:zomato_clone/common/widgets/circular_image.dart';
 import 'package:zomato_clone/common/widgets/search_bar_widget.dart';
