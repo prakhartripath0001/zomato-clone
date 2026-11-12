@@ -50,15 +50,17 @@ Watch the complete live development & app walkthrough on YouTube:
 
 | Layer / Capability | Technology | Purpose |
 | :--- | :--- | :--- |
-| **Framework** | [Flutter](https://flutter.dev/) (Dart 3.3+) | High-performance cross-platform mobile UI engine |
-| **State Management** | [Flutter Riverpod](https://riverpod.dev/) (`2.x`) | Reactive state handling, compile-safe dependency injection, and locale tracking |
-| **Maps & Tiles** | [flutter_map](https://pub.dev/packages/flutter_map) + [latlong2](https://pub.dev/packages/latlong2) | OpenStreetMap tile rendering without requiring paid Google Maps API keys |
-| **Location & Geocoding** | [geolocator](https://pub.dev/packages/geolocator) + [geocoding](https://pub.dev/packages/geocoding) | Device GPS positioning and coordinate-to-address resolution |
-| **OTP Input** | [pinput](https://pub.dev/packages/pinput) | Custom animated PIN/OTP verification input boxes |
-| **Vector Animations** | [Lottie](https://pub.dev/packages/lottie) | High-fidelity animations for delivery bags, banners, and loading states |
-| **Image Caching** | [cached_network_image](https://pub.dev/packages/cached_network_image) | Disk/memory caching and shimmer placeholder handling for remote images |
+| **Framework** | [Flutter](https://flutter.dev/) (3.47+ / Dart 3.13+) | High-performance cross-platform mobile UI engine |
+| **State Management** | [Flutter Riverpod](https://riverpod.dev/) (`^3.5.0`) | Reactive state handling, compile-safe dependency injection, and locale tracking |
+| **Maps & Tiles** | [flutter_map](https://pub.dev/packages/flutter_map) (`^8.3.2`) + [latlong2](https://pub.dev/packages/latlong2) (`^0.10.1`) | OpenStreetMap tile rendering without requiring paid Google Maps API keys |
+| **Location & Geocoding** | [geolocator](https://pub.dev/packages/geolocator) (`^14.1.2`) + [geocoding](https://pub.dev/packages/geocoding) (`^5.0.1`) | Device GPS positioning and coordinate-to-address resolution |
+| **OTP Input** | [pinput](https://pub.dev/packages/pinput) (`^7.0.0`) | Custom animated PIN/OTP verification input boxes |
+| **Vector Animations** | [Lottie](https://pub.dev/packages/lottie) (`^3.8.2`) | High-fidelity animations for delivery bags, banners, and loading states |
+| **Image Caching** | [cached_network_image](https://pub.dev/packages/cached_network_image) (`^4.0.7`) | Disk/memory caching and shimmer placeholder handling for remote images |
+| **Rich Text** | [styled_text](https://pub.dev/packages/styled_text) (`^10.0.0`) | Tag-based formatted rich text rendering |
+| **Icons & Fonts** | [cupertino_icons](https://pub.dev/packages/cupertino_icons) (`^2.0.0`) + [google_fonts](https://pub.dev/packages/google_fonts) (`^9.0.0`) | Vector iconography and dynamic typography |
 | **Typography & Styling** | Custom Fonts (`assets/fonts/`) | Bundled multi-weight custom typography matching Zomato's brand font |
-| **Build System** | Gradle 9.x + Modern Plugin DSL | Fully migrated to declarative `plugins {}` block for modern Flutter 3.x+ compatibility |
+| **Build System** | Gradle 9.7.1 + AGP 9.1.0 + Kotlin 2.3.20 | Declarative modern plugin DSL with Java 17 support |
 
 ---
 
@@ -121,6 +123,39 @@ lib/
    ```
 
 > **Note**: Zero setup required. This project works immediately after cloning without needing custom API keys or Firebase configuration files.
+
+---
+
+## Build System & Gradle Configuration
+
+| Tool / Component | Version | Configuration File |
+| :--- | :--- | :--- |
+| **Gradle** | `9.7.1` | `android/gradle/wrapper/gradle-wrapper.properties` |
+| **Android Gradle Plugin (AGP)** | `9.1.0` | `android/settings.gradle` |
+| **Kotlin** | `2.3.20` | `android/settings.gradle` |
+| **Java Compatibility** | `Java 17` | `android/app/build.gradle` |
+| **Android Min SDK** | `28` (Android 9.0+) | `android/app/build.gradle` |
+
+### How to Check the Gradle Version
+
+1. **Via the Wrapper Configuration File:**
+   Open [android/gradle/wrapper/gradle-wrapper.properties](file:///Users/prakhartripathi/Documents/zomato-clone/android/gradle/wrapper/gradle-wrapper.properties) and look at `distributionUrl`:
+   ```properties
+   distributionUrl=https\://services.gradle.org/distributions/gradle-9.7.1-bin.zip
+   ```
+2. **Via Terminal / Command Line:**
+   From the project root, run:
+   ```bash
+   cd android && ./gradlew --version
+   ```
+3. **Android Gradle Plugin (AGP) & Kotlin Versions:**
+   Check the `plugins` block in [android/settings.gradle](file:///Users/prakhartripathi/Documents/zomato-clone/android/settings.gradle):
+   ```groovy
+   plugins {
+       id "com.android.application" version "9.1.0" apply false
+       id "org.jetbrains.kotlin.android" version "2.3.20" apply false
+   }
+   ```
 
 ---
 
