@@ -221,7 +221,7 @@ class _MapWidgetState extends State<MapWidget> with TickerProviderStateMixin {
 
   void updatePoint(MapEvent? event, BuildContext context) {
     final pointX = _getPointX(context);
-    latLng = mapController.camera.pointToLatLng(Point(pointX, pointY));
+    latLng = mapController.camera.screenOffsetToLatLng(Offset(pointX, pointY));
     print("Lat: ${latLng?.latitude}, Long: ${latLng?.longitude}");
     timer.cancel();
     timer = Timer(

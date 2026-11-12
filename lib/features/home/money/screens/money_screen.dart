@@ -1,8 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:styled_text/tags/styled_text_tag.dart';
-import 'package:styled_text/widgets/styled_text.dart';
+import 'package:styled_text/styled_text.dart';
 import 'package:zomato_clone/common/constants/colors.dart';
 import 'package:zomato_clone/features/home/money/widgets/gift_banner_widget.dart';
 import 'package:zomato_clone/features/home/profile/screens/profile_screen.dart';
